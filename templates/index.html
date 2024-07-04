@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Water Quality Prediction</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Water Quality Prediction</h1>
+        <form id="waterQualityForm" method="post" action="{{ url_for('predict') }}">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="ph">pH</label>
+                    <input type="number" id="ph" name="ph" step="0.000000000000001" required>
+                </div>
+                <div class="form-group">
+                    <label for="hardness">Hardness</label>
+                    <input type="number" id="hardness" name="hardness" step="0.000000000000001" required>
+                </div>
+                <div class="form-group">
+                    <label for="solids">Solids</label>
+                    <input type="number" id="solids" name="solids" step="0.000000000000001" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="chloramines">Chloramines</label>
+                    <input type="number" id="chloramines" name="chloramines" step="0.000000000000001" required>
+                </div>
+                <div class="form-group">
+                    <label for="sulfate">Sulfate</label>
+                    <input type="number" id="sulfate" name="sulfate" step="0.000000000000001" required>
+                </div>
+                <div class="form-group">
+                    <label for="conductivity">Conductivity</label>
+                    <input type="number" id="conductivity" name="conductivity" step="0.000000000000001" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="organic_carbon">Organic Carbon</label>
+                    <input type="number" id="organic_carbon" name="organic_carbon" step="0.000000000000001" required>
+                </div>
+                <div class="form-group">
+                    <label for="trihalomethanes">Trihalomethanes</label>
+                    <input type="number" id="trihalomethanes" name="trihalomethanes" step="0.000000000000001" required>
+                </div>
+                <div class="form-group">
+                    <label for="turbidity">Turbidity</label>
+                    <input type="number" id="turbidity" name="turbidity" step="0.000000000000001" required>
+                </div>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        {% if result != False %}
+            <div id="output">{{result}}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
